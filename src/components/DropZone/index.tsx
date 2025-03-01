@@ -14,7 +14,7 @@ const DropZone =()=>{
     }
 
     return (
-        <div class='drop-zone-cont'>   
+        <div className='drop-zone-cont'>   
             <span className='upload-text'> Upload .CSV</span>
             <div className='data-drop'>
                 <div id='drop_zone'
@@ -26,8 +26,8 @@ const DropZone =()=>{
             </div>
             <div className='input-file'>
                     <form>
-                        <label for="fileSelect">Choose a .CSV file: </label>
-                        <input id="fileSelect" type="file" id="avatar" name="avatar" accept=".csv" />
+                        <label htmlFor="fileSelect">Choose a .CSV file: </label>
+                        <input id="fileSelect" type="file"  name="fileSelect" accept=".csv" />
                     </form>
                 </div>
         </div> 
