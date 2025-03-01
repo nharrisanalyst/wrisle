@@ -1,25 +1,35 @@
-.data-drop{
-    width: 650px;
-    height:420px;
-    max-width: calc(100% - 64px);
-    border:1px solid rgb(10,10,10,0.1);
-    
-    box-shadow:  0 1px 3px rgba(0, 0, 0, .07), inset 0 1px 1px rgba(255, 255, 255, .45);
-    border-radius: 5px;
-    
-    #drop_zone{
-        height:calc(100% - 8px);
-        width:calc(100% - 8px);
-        background-color: rgb(10,10,10,0.08);
-        margin:4px;
-        border-radius: 5px;
-        text-align:center;
-        line-height: 150px;
+.drop-zone-cont{
+    max-width: 650px;
+    width:100%;
+    margin-left:64px;
+    .data-drop{
+            max-width: 650px;
+            height:420px;
+            width: calc(100% - 64px);
+            border:1px solid rgb(10,10,10,0.1);
+            
+            box-shadow:  0 1px 3px rgba(0, 0, 0, .07), inset 0 1px 1px rgba(255, 255, 255, .45);
+            border-radius: 5px;
+            
+            #drop_zone{
+                height:calc(100% - 8px);
+                width:calc(100% - 8px);
+                background-color: rgb(10,10,10,0.08);
+                margin:4px;
+                border-radius: 5px;
+                text-align:center;
+                line-height: 150px;
 
-    }
+            }
 
-    
+            
 
+        }
+
+ .input-file{
+    margin-top:8px;
+    color:black;
+ }
 }
 .upload-text{
     font-weight: 700;
