@@ -9,12 +9,15 @@
     }
 
     .side-panel{
-        background-color: blue;
+        
     }
     .main-panel{
-        background-color: yellow;
+        justify-items:center;
+        overflow:scroll;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+
     }
-    .footer{
-        background-color: red;
-    }
+    
 }

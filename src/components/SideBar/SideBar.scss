@@ -1,0 +1,17 @@
+.side-panel{
+background-color:rgb(10,10,10,0.025);
+border-right:1px solid rgb(10,10,10, 0.25);
+display: grid;
+grid-template-rows: 55px 1fr 55px;
+padding-left:36px;
+
+.side-panel-header{
+    font-size:1.5em;
+    line-height: 54px;
+    font-weight: 300;
+}
+.side-panel-footer{
+   
+}
+
+}
