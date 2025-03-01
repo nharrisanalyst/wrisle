@@ -1,10 +1,10 @@
 {
-  "files": [],
+  "files": ["src/custom.d.ts"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   }
 }
