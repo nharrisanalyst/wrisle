@@ -29,7 +29,7 @@ const DropZone =()=>{
     const handleFile =(csv:File)=>{
         const reader = new FileReader();
         reader.onload=(event:ProgressEvent<FileReader>)=>{
-            const csvText = event.target.result;
+            const csvText:string = event?.target?.result as string;
             readString(csvText, {
                 complete: (results:any) => {
                     console.log("Parsing complete:", results, csv)
@@ -38,9 +38,7 @@ const DropZone =()=>{
                 skipEmptyLines: true
               });
         }
-
         reader.readAsText(csv);
-        console.log(csv,'csv')
 
     }
     return (
