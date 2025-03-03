@@ -1,16 +1,33 @@
-import { DragEvent } from 'react';
+import { DragEvent, ChangeEvent } from 'react';
 import './dropZone.scss';
 
 const DropZone =()=>{
     
-    function handleDrop(ev:DragEvent<HTMLDivElement>){
-        ev.preventDefault();
-        console.log('the file has been drop ');
+    function handleDrop(ev:DragEvent<HTMLDivElement> ){
+        ev.preventDefault()
+        if(ev.dataTransfer.items && ev.dataTransfer.items[0]){
+            const csv:File = ev.dataTransfer.items[0].getAsFile() as File;
+            handleFile(csv);
+        }
     }
 
     function handleDragOver(ev:DragEvent<HTMLDivElement>){
         ev.preventDefault();
         console.log('the file has been dragged');
+    }
+
+    function handleFileInput(ev:ChangeEvent<HTMLInputElement>){
+        ev.preventDefault()
+        if(ev.target.files && ev.target.files[0]){
+            const csv:File = ev.target.files[0];
+            handleFile(csv);
+        }
+    }
+
+    const handleFile =(csv:File)=>{
+
+        console.log(csv,'csv')
+
     }
 
     return (
@@ -27,7 +44,7 @@ const DropZone =()=>{
             <div className='input-file'>
                     <form>
                         <label htmlFor="fileSelect">Choose a .CSV file: </label>
-                        <input id="fileSelect" type="file"  name="fileSelect" accept=".csv" />
+                        <input onChange={handleFileInput} id="fileSelect" type="file"  name="fileSelect" accept=".csv" />
                     </form>
                 </div>
         </div> 
