@@ -1,7 +1,9 @@
 import { DragEvent, ChangeEvent } from 'react';
+import { usePapaParse } from 'react-papaparse';
 import './dropZone.scss';
 
 const DropZone =()=>{
+    const { readString } = usePapaParse();
     
     function handleDrop(ev:DragEvent<HTMLDivElement> ){
         ev.preventDefault()
@@ -25,11 +27,20 @@ const DropZone =()=>{
     }
 
     const handleFile =(csv:File)=>{
-
-        console.log(csv,'csv')
+        const reader = new FileReader();
+        reader.onload=(event:ProgressEvent<FileReader>)=>{
+            const csvText:string = event?.target?.result as string;
+            readString(csvText, {
+                complete: (results:any) => {
+                    console.log("Parsing complete:", results, csv)
+                },
+                header: true,
+                skipEmptyLines: true
+              });
+        }
+        reader.readAsText(csv);
 
     }
-
     return (
         <div className='drop-zone-cont'>   
             <span className='upload-text'> Upload .CSV</span>
