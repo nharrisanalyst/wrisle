@@ -1,5 +1,9 @@
 import { DragEvent, ChangeEvent } from 'react';
 import { usePapaParse } from 'react-papaparse';
+import { nanoid } from 'nanoid'; 
+import { TableState } from '../../types/TableData';
+import useStore  from '../../store/useStore';
+
 import './dropZone.scss';
 
 const DropZone =()=>{
@@ -31,13 +35,29 @@ const DropZone =()=>{
             const csvText:string = event?.target?.result as string;
             readString(csvText, {
                 complete: (results:any) => {
-                    console.log("Parsing complete:", results, csv)
+                    console.log(results);
+                    //updateTableDataState(results)
                 },
                 header: true,
                 skipEmptyLines: true
               });
         }
         reader.readAsText(csv);
+
+    }
+
+    const updateTableDataState =(data:any)=>{
+        const newTableData:TableState = {
+            id:nanoid(),
+            name:"untitled",
+            data:{
+                headers:data.meta.fields,
+                rows:data.data
+            },
+            dateCreated: new Date() 
+        }
+
+        useStore.addTableData(newTableData);
 
     }
     return (

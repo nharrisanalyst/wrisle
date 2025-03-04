@@ -1,4 +1,4 @@
-import {StateCreator, SetState } from "zustand";
+import { SetState } from "zustand";
 import {MyStoreInterface} from './useStore';
 import { TableState } from '../types/TableData';
 
@@ -8,7 +8,7 @@ export interface TableDataStoreType {
     addTableData:()=> void;
 }
 
-const useTableDataStore = StateCreator<TableDataStoreType>((set:SetState<MyStoreInterface>)=>({
+const useTableDataStore = ((set:SetState<MyStoreInterface>)=>({
     tableData:[],
     addTableData:(newTableData:TableState)=>{
         set((state:any)=>({tableData:[...state.tableData, newTableData]}))
