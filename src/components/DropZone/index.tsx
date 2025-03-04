@@ -15,7 +15,6 @@ const DropZone =()=>{
 
     function handleDragOver(ev:DragEvent<HTMLDivElement>){
         ev.preventDefault();
-        console.log('the file has been dragged');
     }
 
     function handleFileInput(ev:ChangeEvent<HTMLInputElement>){

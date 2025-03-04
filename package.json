@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^3.2.1",
-    "jotai": "^2.12.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-papaparse": "^4.4.0",
-    "uninstall": "^0.0.0"
+    "uninstall": "^0.0.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
