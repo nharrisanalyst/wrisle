@@ -1,15 +1,16 @@
-import { DragEvent, ChangeEvent } from 'react';
+import  { DragEvent, ChangeEvent, FC } from 'react';
 import { usePapaParse } from 'react-papaparse';
-import { nanoid } from 'nanoid'; 
+import {nanoid} from 'nanoid';
 import { TableState } from '../../types/TableData';
-import useStore  from '../../store/useStore';
+import useStore, {MyStoreInterface}  from '../../store/useStore';
 
 import './dropZone.scss';
 
-const DropZone =()=>{
+const DropZone =() =>{
     const { readString } = usePapaParse();
+    const { addTableData, tableData }= useStore();
     
-    function handleDrop(ev:DragEvent<HTMLDivElement> ){
+    function handleDrop(ev:DragEvent<HTMLDivElement> ):void{
         ev.preventDefault()
         if(ev.dataTransfer.items && ev.dataTransfer.items[0]){
             const csv:File = ev.dataTransfer.items[0].getAsFile() as File;
@@ -17,11 +18,11 @@ const DropZone =()=>{
         }
     }
 
-    function handleDragOver(ev:DragEvent<HTMLDivElement>){
+    function handleDragOver(ev:DragEvent<HTMLDivElement>):void{
         ev.preventDefault();
     }
 
-    function handleFileInput(ev:ChangeEvent<HTMLInputElement>){
+    function handleFileInput(ev:ChangeEvent<HTMLInputElement>):void{
         ev.preventDefault()
         if(ev.target.files && ev.target.files[0]){
             const csv:File = ev.target.files[0];
@@ -29,14 +30,13 @@ const DropZone =()=>{
         }
     }
 
-    const handleFile =(csv:File)=>{
+    const handleFile =(csv:File):void=>{
         const reader = new FileReader();
         reader.onload=(event:ProgressEvent<FileReader>)=>{
             const csvText:string = event?.target?.result as string;
             readString(csvText, {
                 complete: (results:any) => {
-                    console.log(results);
-                    //updateTableDataState(results)
+                    updateTableDataState(results)   
                 },
                 header: true,
                 skipEmptyLines: true
@@ -46,7 +46,7 @@ const DropZone =()=>{
 
     }
 
-    const updateTableDataState =(data:any)=>{
+    const updateTableDataState =(data:any):void=>{
         const newTableData:TableState = {
             id:nanoid(),
             name:"untitled",
@@ -57,8 +57,7 @@ const DropZone =()=>{
             dateCreated: new Date() 
         }
 
-        useStore.addTableData(newTableData);
-
+        addTableData(newTableData);
     }
     return (
         <div className='drop-zone-cont'>   
