@@ -3,6 +3,7 @@ import { usePapaParse } from 'react-papaparse';
 import {nanoid} from 'nanoid';
 import { TableState } from '../../types/TableData';
 import useStore, {MyStoreInterface}  from '../../store/useStore';
+import { parseCSVRow } from '../Table/utilis/parseCSV'
 
 import './dropZone.scss';
 
@@ -47,6 +48,7 @@ const DropZone =() =>{
     }
 
     const updateTableDataState =(data:any):void=>{
+        console.log(parseCSVRow(data.data))
         const newTableData:TableState = {
             id:nanoid(),
             name:"untitled",
