@@ -1,7 +1,7 @@
 
 export type TableData = {
     headers:Array<string>;
-    rows:Array<object>
+    rows:Array<object>;
 }
 
 export interface TableState {
