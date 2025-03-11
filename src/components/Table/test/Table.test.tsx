@@ -1,6 +1,6 @@
 import {render} from '@testing-library/react';
-import { TableState } from '../../types/TableData';
-import Table, { MyTableProps } from './'
+import { TableState } from '../../../types/TableData';
+import Table, { MyTableProps } from '../'
 
 const tableData:TableState ={
      id:"abcdefg",

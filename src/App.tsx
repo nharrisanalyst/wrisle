@@ -1,6 +1,7 @@
 import DropZone from './components/DropZone';
 import Header from './components/Header';
 import SideBar from './components/SideBar';
+import TableList  from './components/Table/TableList';
 import './App.scss';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           <Header />
           <div className='main-panel'>
             <DropZone />
+            <TableList />
           </div>
         </div>
     </div>

@@ -30,8 +30,9 @@ const Table =({tableData}:MyTableProps)=>{
       })
 
     return(
+        <>
+        <span className='table-title'>{tableData.name}</span>
         <div className='main-table'>
-            <span className={'table-title'}>{tableData.name}</span>
             <table>
                 <thead className="table-header" >
                     {table.getHeaderGroups().map(hG=>(
@@ -61,6 +62,7 @@ const Table =({tableData}:MyTableProps)=>{
                 </tbody>
             </table>
         </div>
+        </>
     )
 }
 

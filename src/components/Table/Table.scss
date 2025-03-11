@@ -1,20 +1,27 @@
-.main-table{
-    .table-title{
+
+.table-title{
+    margin-top:48px;
     font-weight: 700;
     font-size: 34px;
     margin-bottom: 8px;
+    width:calc(100% - 24px);
+    margin-left: 24px;
+    text-align: left;
 }
+.main-table{
+   overflow: scroll;
+   max-width: calc(100% - 24px); 
 table{
     border-spacing:0;
     border: 1px solid #747678;
     border-radius:2px;
+    overflow-x: scroll;
 
     .table-header th {
     
         text-transform: capitalize;
         // background:lightgrey;
         font-size:.77em;
-        padding-right:-10px;
         width:auto;
         padding: 4px 3px;
         background-color: light;
