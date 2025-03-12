@@ -1,0 +1,28 @@
+.side-container-comp{
+    
+    button{
+        width: 100%;
+        border: medium;
+        cursor: pointer;
+        display: flex;
+        -moz-box-align: start;
+        align-items: start;
+        text-align: left;
+        padding-left: 8px;
+        color: inherit;
+        font-size: 14px;
+        background: transparent;
+        min-height: 28px;
+        border-radius: 4px;
+        gap: 6px;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        line-height: 24px;
+    }
+
+    .side-panel-title{
+        font-weight: 500;
+        line-height: 24px;
+        text-decoration: underline;
+    }
+}
