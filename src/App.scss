@@ -3,6 +3,7 @@
     display:grid;
     grid-template-columns: 260px minmax(0,1fr);
     height: 100vh;
+    
 
     .main-header{
 
@@ -11,14 +12,21 @@
     .side-panel{
         
     }
-    .main-panel{
-        height:auto;
-        justify-items:center;
-        overflow-y: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        padding-top: 48px;
+    .main-content{
+        overflow-y: scroll;
+        .main-header{
+            position:sticky;
+            top:0;
+            background-color: white;
+        }
+        .main-panel{
+            justify-items:center;
+            overflow-y: scroll;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-top: 48px;
 
-    }
+        }
+}
     
 }
