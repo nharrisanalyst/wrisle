@@ -28,5 +28,14 @@ type Story = StoryObj<typeof TableSide>;
 
 export const Primary: Story = {
   args: {
+    listItems:[
+      {
+        name:'table_1',
+        id:'example-123abc'
+      },{
+        name:'table_2',
+        id:'example-123abd'
+      }
+  ]
   },
 };

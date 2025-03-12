@@ -8,7 +8,6 @@
         -moz-box-align: start;
         align-items: start;
         text-align: left;
-        padding-left: 8px;
         color: inherit;
         font-size: 14px;
         background: transparent;
@@ -24,5 +23,21 @@
         font-weight: 500;
         line-height: 24px;
         text-decoration: underline;
+    }
+}
+
+.side-bar-item-list{
+    margin-left:58px;
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+    div{
+            font-weight:100;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size:14px;
+        a{
+            color:rgb(10,10,10, 0.85);
+        }
     }
 }
