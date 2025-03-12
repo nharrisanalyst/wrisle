@@ -31,7 +31,7 @@ const Table =({tableData}:MyTableProps)=>{
 
     return(
         <>
-        <span className='table-title'>{tableData.name}</span>
+        <span className='table-title' id={tableData.id}>{tableData.name}</span>
         <div className='main-table'>
             <table>
                 <thead className="table-header" >

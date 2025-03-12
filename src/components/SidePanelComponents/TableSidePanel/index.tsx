@@ -16,8 +16,8 @@ export type TableSideProps ={
 
 const ListItem = ({listItem}:{listItem:ListItem}) =>(
             <div>
-                <a>
-                    {listItem.name}
+                <a href={`#${listItem.id}`}>
+                   - {listItem.name}
                 </a>
             </div>
 )
@@ -25,7 +25,6 @@ const ListItem = ({listItem}:{listItem:ListItem}) =>(
 const TableSide =({listItems}:TableSideProps)=>{
     const [open, setOpen] =useState<boolean>(false);
     const handleClick=(ev:MouseEvent<HTMLButtonElement>)=>{
-        console.log('clicked')
         ev.preventDefault();
         if(open){
             setOpen(false);
@@ -34,7 +33,7 @@ const TableSide =({listItems}:TableSideProps)=>{
         }
     }
 
-    const ItemList = open?(listItems.map(item=>(<ListItem listItem={item} />))):null;
+    const ItemList = open?(listItems.map(item=>(<ListItem key={item.id} listItem={item} />))):null;
 
      return(
         <div className='side-container-comp'>

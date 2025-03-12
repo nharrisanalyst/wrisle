@@ -48,7 +48,6 @@ const DropZone =() =>{
     }
 
     const updateTableDataState =(data:any):void=>{
-        console.log(parseCSVRow(data.data))
         const newTableData:TableState = {
             id:nanoid(),
             name:"untitled",
