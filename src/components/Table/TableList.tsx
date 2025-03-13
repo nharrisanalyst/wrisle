@@ -11,7 +11,7 @@ const TableList = () =>{
         <>    
         {
             tableData.map(
-                (d:TableState) =>(<Table {...{tableData:d}} />)
+                (d:TableState) =>(<Table key={d.id} {...{tableData:d}} />)
             )
         }
         </>

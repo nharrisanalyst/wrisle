@@ -33,11 +33,13 @@ const DropZone =() =>{
 
     const handleFile =(csv:File):void=>{
         const reader = new FileReader();
+        const name = csv.name;
+        console.log('name', name);
         reader.onload=(event:ProgressEvent<FileReader>)=>{
             const csvText:string = event?.target?.result as string;
             readString(csvText, {
                 complete: (results:any) => {
-                    updateTableDataState(results)   
+                    updateTableDataState(results, name);
                 },
                 header: true,
                 skipEmptyLines: true
@@ -47,10 +49,10 @@ const DropZone =() =>{
 
     }
 
-    const updateTableDataState =(data:any):void=>{
+    const updateTableDataState =(data:any, name:string):void=>{
         const newTableData:TableState = {
             id:nanoid(),
-            name:"untitled",
+            name:name,
             data:{
                 headers:data.meta.fields,
                 rows:data.data
