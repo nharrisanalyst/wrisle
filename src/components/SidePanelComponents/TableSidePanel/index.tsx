@@ -25,6 +25,7 @@ const ListItem = ({listItem}:{listItem:ListItem}) =>(
 
 const TableSide =({listItems}:TableSideProps)=>{
     const [open, setOpen] =useState<boolean>(false);
+    
     const lengthListItems = usePrevious<number>(listItems.length);
     const handleClick=(ev:MouseEvent<HTMLButtonElement>)=>{
         ev.preventDefault();

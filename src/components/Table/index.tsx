@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import {createColumnHelper,flexRender,getCoreRowModel,useReactTable, getPaginationRowModel} from '@tanstack/react-table';
 import ControlTable from '../ControlTable'
+import MoreOptions from '../MoreOptions/index';
 import { TableState} from '../../types/TableData';
 
 import './Table.scss';
@@ -59,7 +60,7 @@ const Table =({tableData}:MyTableProps)=>{
     return(
         <>
         <div className='table-title-stuff'>
-            <span className='table-title' id={tableData.id}>{tableData.name}</span> 
+            <span className='table-title' id={tableData.id}><span>{tableData.name}</span><span><MoreOptions /></span></span> 
             <span className='table-row-select'>
                 {TablePagination}
             </span>

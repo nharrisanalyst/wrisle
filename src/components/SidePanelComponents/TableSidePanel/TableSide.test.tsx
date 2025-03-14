@@ -11,7 +11,7 @@ describe('these are test for the <TableSide /> component', ()=>{
         render(<TableSide {...{listItems:[]}} />)
         const arrowRight = screen.getByTestId('right-arrow-id');
         expect(arrowRight).toBeInTheDocument();
-        const button =  screen.getByRole('button');
+        const button =  screen.getByText('Tables');
         fireEvent.click(button);
         const arrowDown = screen.getByTestId('down-arrow-id');
         expect(arrowDown).toBeInTheDocument();
