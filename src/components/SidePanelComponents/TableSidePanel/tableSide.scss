@@ -1,5 +1,5 @@
 .side-container-comp{
-    
+    padding-right:1em;
     button{
         width: 100%;
         border: medium;
@@ -17,6 +17,10 @@
         padding-top: 5px;
         padding-bottom: 4px;
         line-height: 24px;
+        
+        &:hover{
+            background-color:rgb(10,10,10,.050)
+        }
     }
 
     .side-panel-title{
