@@ -22,7 +22,23 @@
         grid-column: 3/4;
         padding-bottom: 4px;
         
-
+       .table-title-rows{
+        display: inline-block;
+        margin-right:16px;
+       }
+       .table-more-options{
+        display: inline-block;
+        height: 19.9px;
+        vertical-align: middle;
+        margin-right:12px;
+        cursor:pointer;
+        border-radius: 25px;
+        padding:5px;
+        &:hover{
+         background-color:rgb(10,10,10,0.1);
+        
+        }
+       }
     }
 }
 .main-table{

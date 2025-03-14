@@ -60,9 +60,11 @@ const Table =({tableData}:MyTableProps)=>{
     return(
         <>
         <div className='table-title-stuff'>
-            <span className='table-title' id={tableData.id}><span>{tableData.name}</span><span><MoreOptions /></span></span> 
+            <span className='table-title' id={tableData.id}>{tableData.name}</span> 
             <span className='table-row-select'>
-                {TablePagination}
+            <span>
+            <span className='table-title-rows'>{TablePagination}</span><span className='table-more-options'><MoreOptions /></span>
+            </span>
             </span>
         </div>
         <div className='main-table'>
