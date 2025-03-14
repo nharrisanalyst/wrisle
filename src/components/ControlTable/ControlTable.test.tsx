@@ -5,6 +5,14 @@ import ControlTable from './';
 const controlTableProps={
     pageCount:0,
     rowCount:25,
+    firstPage:()=>{},
+    disabledFirstPage:false,
+    lastPage:()=>{},
+    disabledLastPage:false,
+    previousPage:()=>{},
+    previousPageDisabled:false,
+    nextPage:()=>{},
+    nextPageDisabled:false,
 
 }
 
