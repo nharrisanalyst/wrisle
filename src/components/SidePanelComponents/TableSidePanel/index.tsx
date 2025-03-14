@@ -1,4 +1,5 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
+import { usePrevious } from '../../../hooks/usePrevious';
 import { TableSVG } from './TableSVG';
 import RightDown from './TableSVG/RightDownSVG/RightDown';
 
@@ -24,6 +25,7 @@ const ListItem = ({listItem}:{listItem:ListItem}) =>(
 
 const TableSide =({listItems}:TableSideProps)=>{
     const [open, setOpen] =useState<boolean>(false);
+    const lengthListItems = usePrevious<number>(listItems.length);
     const handleClick=(ev:MouseEvent<HTMLButtonElement>)=>{
         ev.preventDefault();
         if(open){
@@ -32,6 +34,14 @@ const TableSide =({listItems}:TableSideProps)=>{
             setOpen(true);
         }
     }
+
+    useEffect(()=>{
+        if(listItems.length!=0 && lengthListItems != undefined){
+            if(lengthListItems<listItems.length){
+                setOpen(true);
+            }
+        }
+    },[listItems])
 
     const ItemList = open?(listItems.map(item=>(<ListItem key={item.id} listItem={item} />))):null;
 
