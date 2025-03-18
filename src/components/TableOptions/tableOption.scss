@@ -1,0 +1,29 @@
+.table-option{
+    width:100%;
+    max-width: 200px;
+    button{
+        width:100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: transparent;
+        border:none;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 4px;
+        padding:5px;
+        padding-left:10px;
+        padding-right:10px;
+
+        &:hover{
+            background-color: rgb(10,10,10,0.05);
+        }
+
+        .option-text{
+            text-align: left;
+        }
+
+        .img-svg{
+            text-align:right;
+        }
+    }
+}
