@@ -31,12 +31,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    text: 'Confirm Deletion of Table',
+    deleteText: 'Delete',
     onDelete: ()=> {console.log('deleted')},
     onClose:()=> {console.log('closed')},
+    deleteNoun:'tabel_this_name.csv',
     isOpen: true,
-    actionButtonText:'Delete',
-    actionText:'Warning Press Delete to Delete the Table. Press Close to exit.',
+    actionButtonText:'I want to delete this',
+    actionText:'Warning Pressing delete will delete this table',
     isDelete:true
   },
 };

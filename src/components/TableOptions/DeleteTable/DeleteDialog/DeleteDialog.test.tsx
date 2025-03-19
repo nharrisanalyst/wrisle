@@ -2,12 +2,13 @@ import {render} from '@testing-library/react'
 import DeleteDialog from './';
 
 const props = {
-    text: 'Confirm Deletion of Table',
+    deleteText: 'Confirm Deletion of Table',
     onDelete: ()=> {console.log('deleted')},
     onClose:()=> {console.log('closed')},
     isOpen: true,
     actionButtonText:'Delete',
-    actionText:'Warning Press Delete to Delete the Table'
+    actionText:'Warning Press Delete to Delete the Table',
+    deleteNoun:'tabel_this_name.csv',
   };
 
 
