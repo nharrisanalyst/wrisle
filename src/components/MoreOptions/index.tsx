@@ -1,9 +1,13 @@
-import {ThreeDots} from '../../assets/svgs/ThreeDots';
+import { ReactNode } from 'react';
 
-const MoreOptions =()=>{
+type MoreOptions ={
+    children:ReactNode;
+}
+
+const MoreOptions =({children}:MoreOptions)=>{
     return(
         <span>
-            <ThreeDots />
+           {children}
         </span>
     )
 
