@@ -6,16 +6,13 @@ type DeleteDialogProps ={
     deleteNoun:string;
     onDelete:()=>void;
     onClose:()=>void;
-    isOpen:boolean;
     actionButtonText:string;
     actionText:string;
-    isDelete?:boolean;
 }
 
 
 
-const DeleteDialog = ({deleteText,deleteNoun, onDelete, onClose, isOpen, actionText, actionButtonText,isDelete}:DeleteDialogProps)=>{
-    const styleDelete = isDelete?{'color':'rgb(224, 22, 22, 0.85)'}:{'color':'inherit'}
+const DeleteDialog = ({deleteText,deleteNoun, onClose, onDelete, actionText, actionButtonText}:DeleteDialogProps)=>{
     return( 
        <div className='dialog-box'>
             <div className='dialog-box-box'>
@@ -27,7 +24,7 @@ const DeleteDialog = ({deleteText,deleteNoun, onDelete, onClose, isOpen, actionT
                 </div>
                 <div className='dialog-action-buttons'>
                     <div className='action-text-button-div'>
-                        <button  className='action-text-button'>{actionButtonText}</button>
+                        <button onClick={onDelete}  className='action-text-button'>{actionButtonText}</button>
                     </div>
                 </div>
             </div>
