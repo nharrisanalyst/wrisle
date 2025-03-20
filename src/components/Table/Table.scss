@@ -21,7 +21,24 @@
         text-align: right;   
         grid-column: 3/4;
         padding-bottom: 4px;
+        
+       .table-title-rows{
+        display: inline-block;
+        margin-right:16px;
+       }
+       .table-more-options{
+        
+        
 
+        .table-option-relative{
+            position: relative;
+            top:-75px;
+            left: 250px;
+            .table-option-abs{
+                position:absolute;
+            }
+        }
+       }
     }
 }
 .main-table{

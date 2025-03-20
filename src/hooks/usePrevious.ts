@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
-export const usePrevious = <T>(value: T): T | undefined => {
-  const ref = useRef<T>();
+export const usePrevious = <T>(value: T): T | undefined | null => {
+  const ref = useRef<T | null>(null);
   useEffect(() => {
     ref.current = value;
   });

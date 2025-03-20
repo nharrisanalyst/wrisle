@@ -1,0 +1,94 @@
+.dialog-box{
+   width:100vw;
+   height:100vh;
+   background-color: rgb(10,10,10, 0.75);
+   position: fixed;
+   top:0;
+   left:0;
+   display:grid;
+   justify-content: center;
+   align-items: center;
+
+   .dialog-box-box{
+    width:350px;
+    height:auto;
+    border:1px solid rgb(10,10,10, 0.1);
+    background-color: rgb(255,255,255);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    // padding-left:25px;
+    // padding-right:25px;
+    // padding-top:16px;
+    // padding-bottom:16px;
+    text-align: left;
+    .dialog-box-title{
+        font-size:0.75em;
+        font-weight: bold;
+        border-bottom:1px solid rgb(10,10,10, 0.1);
+        padding-left:25px;
+        padding-right:16px;
+        padding-top:16px;
+        padding-bottom:16px;
+        line-height: 0.75em;
+        display: grid;
+        grid-template-columns: 1fr 25px;
+        align-items:center;
+
+        button{
+            cursor: pointer;
+            display: grid;
+            background-color: transparent;
+            border:none;
+            padding:3px;
+            &:hover{
+                background-color: rgb(10,10,10, 0.08);
+
+            }
+        }
+    }
+
+    .action-text{
+        font-size: 0.8em;
+        padding-top:5px;
+        padding-bottom:32px;
+        padding-left:25px;
+        padding-right:25px;
+        padding-top:16px;
+    }
+    
+    .dialog-action-buttons{
+        width:100%;
+        padding-bottom:16px;
+        padding-left:16px;
+
+        div{
+        width:100%;
+       
+        button{
+            width:calc(100% - 32px);
+            height:30px;
+            font-size: 0.65em;
+            background-color: rgb(10,10,10, 0.05);
+            border:1px solid rgb(10,10,10, 0.5);
+            border-radius: 5px;
+            justify-content: center;
+            font-weight: bold;
+            color:rgb(37, 41, 46);
+            display:grid;
+            grid-template-columns: 1fr;
+
+
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(10,10,10, 0.07);
+                
+            }
+
+        }
+        }
+    }
+
+   }
+}

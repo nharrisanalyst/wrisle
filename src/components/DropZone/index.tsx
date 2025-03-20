@@ -34,7 +34,6 @@ const DropZone =() =>{
     const handleFile =(csv:File):void=>{
         const reader = new FileReader();
         const name = csv.name;
-        console.log('name', name);
         reader.onload=(event:ProgressEvent<FileReader>)=>{
             const csvText:string = event?.target?.result as string;
             readString(csvText, {
