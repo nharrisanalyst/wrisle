@@ -1,7 +1,9 @@
 import {useState, MouseEvent} from 'react';
+import useStore from '../../../store/useStore';
 import TrashIMG from "./img/TrashIMG";
 import '../tableOption.scss';
 import DeleteDialog from './DeleteDialog';
+
 
 
 
@@ -12,9 +14,11 @@ type DeleteTableProps ={
 
 
 const DeleteTable=({tableName,id}:DeleteTableProps)=>{
+    const { deleteTable }= useStore();
     const [openDialog, setOpenDialog] =useState<boolean>(false);
     const handleDelete =(ev:MouseEvent<HTMLButtonElement>) =>{
         ev.preventDefault();
+        deleteTable(id);
         setOpenDialog(false);
     }
 
