@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import './moreOptions.scss';
 
 type MoreOptions ={
     children:ReactNode;
@@ -6,9 +7,13 @@ type MoreOptions ={
 
 const MoreOptions =({children}:MoreOptions)=>{
     return(
-        <span>
+        <div className='table-option-relative'>
+            <div className='table-option-abs table-option'>
+        <span className='options-table-ran1212'>
            {children}
         </span>
+        </div>
+        </div>
     )
 
 }

@@ -6,17 +6,15 @@ import DeleteDialog from './DeleteDialog';
 
 
 type DeleteTableProps ={
-    name:string;
+    tableName:string;
     id:string;
 }
 
 
-const DeleteTable=({name:id}:DeleteTableProps)=>{
+const DeleteTable=({tableName,id}:DeleteTableProps)=>{
     const [openDialog, setOpenDialog] =useState<boolean>(false);
     const handleDelete =(ev:MouseEvent<HTMLButtonElement>) =>{
         ev.preventDefault();
-
-
         setOpenDialog(false);
     }
 
@@ -32,7 +30,7 @@ const DeleteTable=({name:id}:DeleteTableProps)=>{
 
     const DiolagBox = openDialog?(<DeleteDialog
         deleteText={'Delete'}
-        deleteNoun={name}
+        deleteNoun={tableName}
         onDelete={handleDelete}
         onClose={handleClose}
         actionButtonText={"I want to delete this"}
@@ -40,9 +38,10 @@ const DeleteTable=({name:id}:DeleteTableProps)=>{
     return(
         <>
         <div className='table-option'>
-            <button onClick={handleOpen}>
-                <span className='option-text'>Delete Table</span>  <TrashIMG />
-            </button>
+                    <button onClick={handleOpen}>
+                        <span className='option-text'>Delete Table</span>  <TrashIMG />
+                    </button>
+                <div className='table-option-relative'></div>
         </div>
         {DiolagBox}
         </>

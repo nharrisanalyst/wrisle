@@ -1,11 +1,12 @@
+import { MouseEvent } from 'react';
 import './deleteDialog.scss';
 import Close from './img/Close';
 
 type DeleteDialogProps ={
     deleteText: string;
     deleteNoun:string;
-    onDelete:()=>void;
-    onClose:()=>void;
+    onDelete:(ev:MouseEvent<HTMLElement>)=>void;
+    onClose:(ev:MouseEvent<HTMLElement>)=>void;
     actionButtonText:string;
     actionText:string;
 }

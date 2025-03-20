@@ -1,7 +1,8 @@
+import { MouseEvent } from 'react';
 import xImage from './x.svg';
 
 type CloseProps={
-    handleClose:()=>void;
+    handleClose:(ev:MouseEvent<HTMLElement>)=>void;
 }
 
 const Close =({handleClose}:CloseProps)=>(

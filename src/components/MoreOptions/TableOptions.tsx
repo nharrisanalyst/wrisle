@@ -1,5 +1,6 @@
 import { useState, MouseEvent } from 'react';
 import MoreOptions from './';
+import DeleteTable from '../TableOptions/DeleteTable';
 import {ThreeDots} from '../../assets/svgs/ThreeDots';
 
 type TableOptions = {
@@ -25,11 +26,14 @@ const TableOptions = ({name, id}:TableOptions)=>{
             handleOpen();
         }
     }
-    
+    const Options = optionOpen?(<MoreOptions>
+                        <DeleteTable tableName={name} id={id} />
+                    </MoreOptions>):null
     return(
-            <MoreOptions>
+                <>
                 <ThreeDots onClick={handleOpenClose} />
-            </MoreOptions>
+                {Options}
+                </>
             )
 }
 

@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import threeDots from './threeDots.svg';
+import "./threeDots.scss";
 
 type ThreeDotsProps = {
   onClick:(ev:MouseEvent<HTMLElement>)=>void;

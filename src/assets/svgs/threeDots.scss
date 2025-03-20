@@ -1,0 +1,13 @@
+.three-dots-img{
+    display: inline-block;
+        height: 19.9px;
+        vertical-align: middle;
+        margin-right:12px;
+        cursor:pointer;
+        border-radius: 25px;
+        padding:5px;
+    &:hover{
+        background-color:rgb(10,10,10,0.1);
+       
+       }
+}

@@ -27,16 +27,16 @@
         margin-right:16px;
        }
        .table-more-options{
-        display: inline-block;
-        height: 19.9px;
-        vertical-align: middle;
-        margin-right:12px;
-        cursor:pointer;
-        border-radius: 25px;
-        padding:5px;
-        &:hover{
-         background-color:rgb(10,10,10,0.1);
         
+        
+
+        .table-option-relative{
+            position: relative;
+            top:-75px;
+            left: 250px;
+            .table-option-abs{
+                position:absolute;
+            }
         }
        }
     }

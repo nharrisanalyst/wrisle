@@ -76,6 +76,8 @@
             justify-content: center;
             font-weight: bold;
             color:rgb(37, 41, 46);
+            display:grid;
+            grid-template-columns: 1fr;
 
 
             &:hover{
