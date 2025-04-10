@@ -10,7 +10,7 @@
    align-items: center;
 
    .dialog-box-box{
-    width:350px;
+    width:450px;
     height:auto;
     border:1px solid rgb(10,10,10, 0.1);
     background-color: rgb(255,255,255);
@@ -31,10 +31,15 @@
         padding-right:16px;
         padding-top:16px;
         padding-bottom:16px;
-        line-height: 0.75em;
+        line-height: 1.1em;
         display: grid;
         grid-template-columns: 1fr 25px;
         align-items:center;
+        word-break: break-all;
+
+        span{
+            width: calc(100% - 30px);
+        }
 
         button{
             cursor: pointer;
@@ -56,6 +61,7 @@
         padding-left:25px;
         padding-right:25px;
         padding-top:16px;
+        text-align: center;
     }
     
     .dialog-action-buttons{

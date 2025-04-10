@@ -2,6 +2,7 @@ import { MouseEvent, useEffect, useState } from 'react';
 import { usePrevious } from '../../../hooks/usePrevious';
 import { TableSVG } from './TableSVG';
 import RightDown from './TableSVG/RightDownSVG/RightDown';
+import { truncateFile } from '../../utilis/truncateFile'
 
 import './tableSide.scss';
 
@@ -18,7 +19,7 @@ export type TableSideProps ={
 const ListItem = ({listItem}:{listItem:ListItem}) =>(
             <div>
                 <a href={`#${listItem.id}`}>
-                   - {listItem.name}
+                   - {truncateFile(listItem.name)}
                 </a>
             </div>
 )
