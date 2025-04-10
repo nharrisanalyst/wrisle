@@ -7,6 +7,7 @@ import DeleteTable from '../components/TableOptions/DeleteTable/index';
 export interface TableDataStoreType {
     tableData:Array<TableState>;
     addTableData:(newTableData:TableState)=> void;
+    deleteTable:(tableID:string)=>void;
 }
 
 const useTableDataStore:StateCreator<MyStoreInterface> = ((set:any)=>({
