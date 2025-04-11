@@ -1,9 +1,9 @@
-
+import styles from './previewWarning.module.scss'
 
 
 const PreviewWarning = ()=>{
     return(
-    <span>preview</span>
+    <span className={styles.previewWarning}>preview</span>
     )
 }
 
