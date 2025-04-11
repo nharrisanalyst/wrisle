@@ -38,7 +38,8 @@ const useAuthStore:StateCreator<AuthStoreType> = ((set:any)=>({
             set({token:null,user:null});
             return false; 
         }
-      } 
+      }
+      return false; 
     },
     
     setToken:(newToken:string)=>{
