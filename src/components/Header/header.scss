@@ -12,9 +12,13 @@
 .main-header{
     #main-tagline{
         
-        text-align: right;
+        
         font-size: 2em;
 
         
+    }
+    span{
+        text-align: right;
+        vertical-align: middle;
     }
 }
