@@ -10,7 +10,7 @@ export interface TableDataStoreType {
     deleteTable:(tableID:string)=>void;
 }
 
-const useTableDataStore:StateCreator<MyStoreInterface> = ((set:any)=>({
+const useTableDataStore:StateCreator<TableDataStoreType> = ((set:any)=>({
     tableData:[],
     addTableData:(newTableData:TableState)=>{
         set((state:any)=>({tableData:[...state.tableData, newTableData]}))
