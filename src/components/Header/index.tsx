@@ -5,7 +5,6 @@ import  useStore  from '../../store/useStore';
 
 const Header = () =>{
   const {isLoggedIn} = useStore();
- console.log('this is a test', isLoggedIn)
   const preview = isLoggedIn()?null:<PreviewWarning />;
   
   return(
