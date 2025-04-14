@@ -42,22 +42,26 @@ const LoginForm =()=>{
 
     return (
         <div className={styles.mainLoginCont}>
-            <div><Close handleClose={()=>{}} /><span>Login</span></div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email: 
-                        <input type="text" name="name" id="name" onChange={handleUserName} required />
-                    </label>
+            <div className={styles.header}><Close handleClose={()=>{}} /><span>Login</span><span></span></div>
+            <div>
+                <span className={styles.title}>Welcome to Wrisle</span>
+                <form className={styles.form} onSubmit={handleSubmit}>
+                    <div>
+                        <label>
+                            <input className={styles.input} placeholder="Email Address"  type="text" name="name" id="name" onChange={handleUserName} required />
+                        </label>
+                    </div>
+                    <div>
+                        <label> 
+                            <input className={styles.input} placeholder="Password" type="text" name="password" id="password" onChange={handlePassword} required />
+                        </label>
+                    </div>
+                    <div>
+                        <input className={styles.submit} type="submit" value="Continue" />
+                    </div>
+                    
+                </form>
                 </div>
-                <div>
-                    <label>Password: 
-                        <input type="text" name="password" id="password" onChange={handlePassword} required />
-                     </label>
-                </div>
-                <div>
-                    <input type="submit" value="login" />
-                </div>
-            </form>
         </div>
     );
     };

@@ -1,11 +1,57 @@
 .mainLoginCont{
-    width: 500px;
+    width: 600px;
     max-width: calc(100% - 40px);
     border: 1px solid black;
-    padding:25px;
+   
     border-radius:25px;
 
-    
+    .header{
+        display:flex;
+        font-size: 18px;
+        padding:25px;
+        border-bottom: 1px solid lightgrey;
+        padding-bottom:15px;
+        padding-top: 15px;
+        justify-content: space-between;
+        
+    }
+    .title{
+        padding-left:25px;
+        margin-top:35px;
+        display: inline-block;
+        font-size: 40px;
+    }
+
+    .form{
+        padding-top:5px;
+        padding-left:25px;
+        padding-bottom:35px;
+        
+    }
+
+    .input{
+        margin-bottom:5px;
+        width:calc(100% - 30px);
+        height:32px;
+        &::placeholder{
+            color:rgb(0,0,0, 0.5);
+            padding-left:10px;
+        }
+    }
+
+    .submit{
+        width:calc(100% - 20px);
+        height:32px;
+        background-color: rgb(16, 131, 254, 09);
+        border: none;
+        color:rgb(255, 255, 255);
+        margin-top:15px;
+        border-radius: 5px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
 
 
 }
