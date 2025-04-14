@@ -53,7 +53,7 @@ const LoginForm =()=>{
                     </div>
                     <div>
                         <label> 
-                            <input className={styles.input} placeholder="Password" type="text" name="password" id="password" onChange={handlePassword} required />
+                            <input className={styles.input} placeholder="Password" type="password" name="password" id="password" onChange={handlePassword} required />
                         </label>
                     </div>
                     <div>
