@@ -23,13 +23,16 @@ const LoginForm =()=>{
      }
  
      const handleSubmit = (ev:SyntheticEvent<HTMLFormElement>):void =>{
-         const LOGIN_URL= `${API_URL}/login`;
-         ev.preventDefault()
-         const loginInfo = {
-             username:username,
-             password:password
-         }
-         axios.post(LOGIN_URL,loginInfo)
+        ev.preventDefault()
+        const headers ={
+            'Content-Type': 'application/x-www-form-urlencoded',
+          }
+         const LOGIN_URL= `${API_URL}/auth/jwt/login`;
+         const bodyFormData = new FormData();
+         bodyFormData.append('username', username);
+         bodyFormData.append('password',password)
+         
+         axios.post(LOGIN_URL,bodyFormData,headers)
                  .then(function(response){
                      console.log(response)
                  })
