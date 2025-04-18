@@ -62,6 +62,10 @@ const LoginForm =()=>{
                     
                 </form>
                 </div>
+                <div className={styles.or_title}>or</div>
+                <div>
+                    <button>Sign Up</button>
+                </div>
         </div>
     );
     };
