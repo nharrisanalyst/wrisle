@@ -64,7 +64,7 @@ const LoginForm =()=>{
                 </div>
                 <div className={styles.or_title}>or</div>
                 <div>
-                    <button>Sign Up</button>
+                    <button className={styles.signUpButton}>Sign Up</button>
                 </div>
         </div>
     );
