@@ -8,6 +8,7 @@ import styles from './loginForm.module.scss';
 const LoginForm =()=>{
     const [username, setUserName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [] = useState<boolean>(false);
  
     const handleUserName = (ev:ChangeEvent<HTMLInputElement>):void =>{
          ev.preventDefault();
