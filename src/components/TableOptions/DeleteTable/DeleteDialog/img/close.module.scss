@@ -1,0 +1,11 @@
+.closeButton{
+    cursor: pointer;
+    display: grid;
+    background-color: transparent;
+    border:none;
+    padding:3px;
+    &:hover{
+        background-color: rgb(10,10,10, 0.08);
+
+    }
+}
