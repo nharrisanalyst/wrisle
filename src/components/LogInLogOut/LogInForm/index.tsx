@@ -52,7 +52,7 @@ const LoginForm =()=>{
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div>
                         <label>
-                            <input className={styles.input} placeholder="Email Address"  type="text" name="name" id="name" onChange={handleUserName} required />
+                            <input className={styles.input} placeholder="Email Address"  type="email" name="name" id="name" onChange={handleUserName} required />
                         </label>
                     </div>
                     <div>

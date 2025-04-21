@@ -1,15 +1,19 @@
-import {useState, ChangeEvent} from 'react';
+import axios from 'axios';
+import {useState, ChangeEvent, SyntheticEvent} from 'react';
 import Close from '../../TableOptions/DeleteTable/DeleteDialog/img/Close'
+import {API_URL} from '../../../Constants';
 
 import styles from '../LogInForm/loginForm.module.scss';
 
 
 const SignUpForm = ()=>{
-    const [userName, setuserName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [firstname, setFirstName] = useState<string>("");
     const [lastname, setLastName] = useState<string>("");
-    const [dob, setDOB] = useState<Date|null>(null);
+    const [dob, setDOB] = useState<string>("");
+
+    console.log(styles.label)
 
     const handlefirstName = (ev:ChangeEvent<HTMLInputElement>):void =>{
         ev.preventDefault();
@@ -37,24 +41,29 @@ const SignUpForm = ()=>{
         setPassword(inputPassword);
     }
 
+    const handleEmail = (ev:ChangeEvent<HTMLInputElement>): void =>{
+        ev.preventDefault();
+        const email = ev.target.value;
+        setEmail(email);
+    }
+
     const handleSubmit = (ev:SyntheticEvent<HTMLFormElement>):void =>{
         ev.preventDefault()
         const headers ={
             'Content-Type': 'application/json',
           }
-         const LOGIN_URL= `${API_URL}/auth/register`;
-         const bodyFormData = new FormData();
-         userData = {
-            "eamil":email,
-            'password':passsword,
-            "firstname":firstname,
-            "lastname":lastname,
-            "birthdate":dob
+        const LOGIN_URL= `${API_URL}/auth/register`;
+        const  userData = {
+            "email":email,
+            'password':password,
+            "first_name":firstname,
+            "last_name":lastname,
+            "birthday":dob
 
 
          }
          
-         axios.post(LOGIN_URL,bodyFormData,headers)
+         axios.post(LOGIN_URL,userData,headers)
                  .then(function(response){
                      console.log(response)
                  })
@@ -69,17 +78,27 @@ const SignUpForm = ()=>{
     <div>
         <div className={styles.mainLoginCont}>
         <div className={styles.header}><Close handleClose={()=>{}} /><span>Sign Up</span><span></span></div>
-        <form className={styles.form}>
-            <label>
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <label className={styles.label}>
                 Name
                 <input className={styles.input}  placeholder="First Name"  type="text" name="name" id="name" onChange={handlefirstName} required />
                 <input className={styles.input}  placeholder="Last Name"  type="text" name="name" id="name" onChange={handlelastName} required />
             </label>
-            <label>
+            <label className={styles.label}>
                 Date of birth
                 <input className={styles.input} placeholder="First Name"  type="date" name="name" id="name" onChange={handleDOB} required />
             </label>
-
+            <label className={styles.label}>
+                Contact Info
+                <input className={styles.input} placeholder="Email"  type="email" name="name" id="name" onChange={handleEmail} required />
+            </label>
+            <label className={styles.label}>
+                Password
+                <input className={styles.input} placeholder="Password" type="password" name="password" id="password" onChange={handlePassword} required />
+            </label>
+            <div>
+                <input className={styles.submit} style={{marginBottom:'30px'}} type="submit" value="Continue" />
+            </div>
         </form>
         </div>
     </div>
