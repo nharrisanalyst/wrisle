@@ -1,4 +1,4 @@
-import 
+import style from './Button.module.scss';
 
 type ButtonProps ={
     title:string;
@@ -6,8 +6,8 @@ type ButtonProps ={
     onClick:()=>void;
 }
 
-const Button = ({title, backgroundColor, onClick}:ButtonProps) =>{
+const Button = ({title, backgroundColor, onClick}:ButtonProps) =>(
     <button style={{backgroundColor:backgroundColor}} onClick={()=>{onClick()}}>{title}</button>
-}
+)
 
 export default Button;
