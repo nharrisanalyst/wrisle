@@ -1,16 +1,15 @@
 import "./header.scss";
 import PreviewWarning from "../LogInLogOut/PreviewWarning/index";
-import  useStore  from '../../store/useStore';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import { selectLoggedIn } from '../../store/redux/slices/authSlice/authStore';
 
 
 const Header = () =>{
-  const {isLoggedIn} = useStore();
-  const preview = isLoggedIn()?null:<PreviewWarning />;
-  
+  const logState = useAppSelector(selectLoggedIn);
   return(
     <div className="main-header">
       <span>
-      {preview}  <span id='main-tagline'>Perception in Data </span>
+      <PreviewWarning loggedState={logState} />  <span id='main-tagline'>Perception in Data </span>
       </span>
     </div>
   )

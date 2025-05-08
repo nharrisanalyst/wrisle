@@ -1,10 +1,14 @@
 import { Arrow } from '../Arrow'
-import Button from '../LogInButtons/Button'
+import LogInButton from '../LogInButtons/Button'
 import TableSideGlobal from '../SidePanelComponents/TableSidePanel/TableSidePanelGlobal';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import { selectLoggedIn } from '../../store/redux/slices/authSlice/authStore';
 import './SideBar.scss';
 
 
 const SideBar = ()=>{
+    const loggedState = useAppSelector(selectLoggedIn);
+    const showLogIn = !(loggedState === "LOGGED_IN");
     return (
         <div className='side-panel'>
             <div className='side-panel-header'>WRISLE</div>
@@ -13,8 +17,8 @@ const SideBar = ()=>{
             </div>
             
             <div className='side-panel-footer'>
-            <Button title={"Upgrade/Log In"} />
-               <span> about<Arrow /> </span>
+            <LogInButton title={"Upgrade/Log In"}  show={showLogIn}/>
+               <div> about<Arrow /> </div>
             </div>
         </div>
     )
