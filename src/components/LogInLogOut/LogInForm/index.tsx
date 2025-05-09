@@ -1,5 +1,7 @@
-import { useState, ChangeEvent, SyntheticEvent } from 'react';
+import { useState, ChangeEvent, SyntheticEvent, MouseEvent, useCallback } from 'react';
 import axios from 'axios';
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import { showSignUp, dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
 
 import {API_URL} from '../../../Constants';
 import Close from '../../TableOptions/DeleteTable/DeleteDialog/img/Close'
@@ -9,6 +11,8 @@ const LoginForm =()=>{
     const [username, setUserName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [] = useState<boolean>(false);
+
+    const dispatch = useAppDispatch();
  
     const handleUserName = (ev:ChangeEvent<HTMLInputElement>):void =>{
          ev.preventDefault();
@@ -42,11 +46,22 @@ const LoginForm =()=>{
                  })
  
      }
+
+     const handleClose = useCallback((ev:MouseEvent<HTMLElement>) =>{
+        ev.preventDefault();
+        dispatch(dontShowLoginOrSignUp());
+
+     }, [])
+
+     const handlesignUpClick =(ev:MouseEvent<HTMLButtonElement>) =>{
+        ev.preventDefault();
+        dispatch(showSignUp());
+     }
  
 
     return (
         <div className={styles.mainLoginCont}>
-            <div className={styles.header}><Close handleClose={()=>{}} /><span>Login</span><span></span></div>
+            <div className={styles.header}><Close handleClose={handleClose} /><span>Login</span><span></span></div>
             <div>
                 <span className={styles.title}>Welcome to Wrisle</span>
                 <form className={styles.form} onSubmit={handleSubmit}>
@@ -68,7 +83,7 @@ const LoginForm =()=>{
                 </div>
                 <div className={styles.or_title}>or</div>
                 <div>
-                    <button className={styles.signUpButton}>Sign Up</button>
+                    <button className={styles.signUpButton} onClick={handlesignUpClick}>Sign Up</button>
                 </div>
         </div>
     );
