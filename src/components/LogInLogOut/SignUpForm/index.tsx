@@ -1,7 +1,10 @@
 import axios from 'axios';
-import {useState, ChangeEvent, SyntheticEvent} from 'react';
+import {useState, ChangeEvent, SyntheticEvent, useCallback} from 'react';
 import Close from '../../TableOptions/DeleteTable/DeleteDialog/img/Close'
 import {API_URL} from '../../../Constants';
+
+import { useAppDispatch } from '../../../hooks/reduxHooks';
+import { dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
 
 import styles from '../LogInForm/loginForm.module.scss';
 
@@ -12,6 +15,8 @@ const SignUpForm = ()=>{
     const [firstname, setFirstName] = useState<string>("");
     const [lastname, setLastName] = useState<string>("");
     const [dob, setDOB] = useState<string>("");
+
+    const dispatch = useAppDispatch();
 
     console.log(styles.label)
 
@@ -73,11 +78,17 @@ const SignUpForm = ()=>{
  
      }
 
+     const handleClose = useCallback((ev:MouseEvent<HTMLElement>) =>{
+        ev.preventDefault();
+        dispatch(dontShowLoginOrSignUp());
+
+     }, [])
+
      return (
 
     <div>
         <div className={styles.mainLoginCont}>
-        <div className={styles.header}><Close handleClose={()=>{}} /><span>Sign Up</span><span></span></div>
+        <div className={styles.header}><Close handleClose={handleClose} /><span>Sign Up</span><span></span></div>
         <form className={styles.form} onSubmit={handleSubmit}>
             <label className={styles.label}>
                 Name

@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, SyntheticEvent, MouseEvent, useCallback } from 'react';
 import axios from 'axios';
 import { useAppDispatch } from '../../../hooks/reduxHooks';
-import { dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
+import { showSignUp, dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
 
 import {API_URL} from '../../../Constants';
 import Close from '../../TableOptions/DeleteTable/DeleteDialog/img/Close'
@@ -52,6 +52,11 @@ const LoginForm =()=>{
         dispatch(dontShowLoginOrSignUp());
 
      }, [])
+
+     const handlesignUpClick =(ev:MouseEvent<HTMLButtonElement>) =>{
+        ev.preventDefault();
+        dispatch(showSignUp());
+     }
  
 
     return (
@@ -78,7 +83,7 @@ const LoginForm =()=>{
                 </div>
                 <div className={styles.or_title}>or</div>
                 <div>
-                    <button className={styles.signUpButton}>Sign Up</button>
+                    <button className={styles.signUpButton} onClick={handlesignUpClick}>Sign Up</button>
                 </div>
         </div>
     );
