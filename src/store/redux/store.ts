@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer, { AuthStateType} from './slices/authSlice/authStore';
+import loginInPanelReducer from './slices/logInSlice/loginStore'
 
 export interface StateType {
   authorization:AuthStateType
@@ -8,7 +9,8 @@ export interface StateType {
 
 export const store = configureStore({
   reducer: {
-    authorization:authReducer 
+    authorization:authReducer,
+    loginInPanel:loginInPanelReducer
   },
 })
 export type RootState = ReturnType<typeof store.getState>

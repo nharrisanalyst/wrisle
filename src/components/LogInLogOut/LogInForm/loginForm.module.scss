@@ -1,9 +1,10 @@
 .mainLoginCont{
     width: 600px;
     max-width: calc(100% - 40px);
-    border: 1px solid black;
    
     border-radius:25px;
+    background-color: white;
+    
 
     .header{
         display:flex;

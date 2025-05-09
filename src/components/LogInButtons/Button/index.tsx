@@ -1,23 +1,26 @@
-import { useCallback, MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import { useAppDispatch } from '../../../hooks/reduxHooks';
+import { showLogIn } from '../../../store/redux/slices/logInSlice/loginStore';
 import style from './Button.module.scss';
-import { useAppDispatch } from '../../../hooks/reduxHooks';
+
 type ButtonProps ={
     title:string;
     backgroundColor:string;
-    onClick:()=>void;
     show:boolean;
 }
 
-const LogInButton = ({title, backgroundColor, onClick, show}:ButtonProps) =>{
+const LogInButton = ({title, backgroundColor, show}:ButtonProps) =>{
+    const dispatch = useAppDispatch()
+    
 
     const handleClick = (e:MouseEvent<HTMLButtonElement>)=>{
+        console.log('this was clicked');
         e.preventDefault();
-        useAppDispatch()
+        dispatch(showLogIn());
     }
   
     if(!show) return null;
-    return(<button className={style.button} style={{backgroundColor:backgroundColor}} onClick={()=>{onClick()}}>{title}</button>)
+    return(<button className={style.button} style={{backgroundColor:backgroundColor}} onClick={handleClick}>{title}</button>)
 
 }
 
