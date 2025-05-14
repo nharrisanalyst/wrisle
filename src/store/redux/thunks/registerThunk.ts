@@ -27,7 +27,6 @@ export const registerThunk = ({userData}:RegisterThunkUserType) =>{
         
            if(register_response.status === 201 && register_response.statusText == "Created"){
                 dispatch(showLogIn());
-                console.log(getState(), 'this is the state here');
            } 
         }catch(err){
 
