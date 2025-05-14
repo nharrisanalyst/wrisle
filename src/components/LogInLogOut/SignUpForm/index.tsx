@@ -5,6 +5,7 @@ import {API_URL} from '../../../Constants';
 
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import { dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
+import {registerThunk} from '../../../store/redux/thunks/registerThunk'
 
 import styles from '../LogInForm/loginForm.module.scss';
 
@@ -17,8 +18,6 @@ const SignUpForm = ()=>{
     const [dob, setDOB] = useState<string>("");
 
     const dispatch = useAppDispatch();
-
-    console.log(styles.label)
 
     const handlefirstName = (ev:ChangeEvent<HTMLInputElement>):void =>{
         ev.preventDefault();
@@ -53,10 +52,7 @@ const SignUpForm = ()=>{
     }
 
     const handleSubmit = (ev:SyntheticEvent<HTMLFormElement>):void =>{
-        ev.preventDefault()
-        const headers ={
-            'Content-Type': 'application/json',
-          }
+        ev.preventDefault();
         const LOGIN_URL= `${API_URL}/auth/register`;
         const  userData = {
             "email":email,
@@ -64,21 +60,12 @@ const SignUpForm = ()=>{
             "first_name":firstname,
             "last_name":lastname,
             "birthday":dob
-
-
          }
-         
-         axios.post(LOGIN_URL,userData,headers)
-                 .then(function(response){
-                     console.log(response)
-                 })
-                 .catch(function(error){
-                     console.log(error)
-                 })
- 
+
+         dispatch(registerThunk({userData}));
      }
 
-     const handleClose = useCallback((ev:MouseEvent<HTMLElement>) =>{
+     const handleClose = useCallback((ev:SyntheticEvent<HTMLElement>) =>{
         ev.preventDefault();
         dispatch(dontShowLoginOrSignUp());
 

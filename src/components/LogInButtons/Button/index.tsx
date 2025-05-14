@@ -14,7 +14,6 @@ const LogInButton = ({title, backgroundColor, show}:ButtonProps) =>{
     
 
     const handleClick = (e:MouseEvent<HTMLButtonElement>)=>{
-        console.log('this was clicked');
         e.preventDefault();
         dispatch(showLogIn());
     }
