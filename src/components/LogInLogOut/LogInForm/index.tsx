@@ -1,9 +1,8 @@
 import { useState, ChangeEvent, SyntheticEvent, MouseEvent, useCallback } from 'react';
-import axios from 'axios';
 import { useAppDispatch } from '../../../hooks/reduxHooks';
 import { showSignUp, dontShowLoginOrSignUp } from '../../../store/redux/slices/logInSlice/loginStore';
+import { thunkLogin } from '../../../store/redux/thunks/authThunks';
 
-import {API_URL} from '../../../Constants';
 import Close from '../../TableOptions/DeleteTable/DeleteDialog/img/Close'
 import styles from './loginForm.module.scss';
 
@@ -29,22 +28,7 @@ const LoginForm =()=>{
  
      const handleSubmit = (ev:SyntheticEvent<HTMLFormElement>):void =>{
         ev.preventDefault()
-        const headers ={
-            'Content-Type': 'application/x-www-form-urlencoded',
-          }
-         const LOGIN_URL= `${API_URL}/auth/jwt/login`;
-         const bodyFormData = new FormData();
-         bodyFormData.append('username', username);
-         bodyFormData.append('password',password)
-         
-         axios.post(LOGIN_URL,bodyFormData,headers)
-                 .then(function(response){
-                     console.log(response)
-                 })
-                 .catch(function(error){
-                     console.log(error)
-                 })
- 
+        dispatch(thunkLogin({username,password}));
      }
 
      const handleClose = useCallback((ev:MouseEvent<HTMLElement>) =>{

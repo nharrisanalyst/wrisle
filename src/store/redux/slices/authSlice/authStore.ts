@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import {JWT_KEY} from './authThunk'
 import type { RootState } from '../store'
  
 //logged states
 //LOGGED_OUT  LOGGED_IN LOGGING_IN_ERROR
 
-
+export const JWT_KEY = 'fnjdkabnfdjkabfnjkdabnfkjadnfjkda';
 //define state for AUth
-interface UserInterface {
+export interface UserInterface {
+        id:string;
+        email:string
         firstName:string;
         lastName:string;
-        birthday:Date
+        birthday:string;
 }
 
 export type LogStateType = 'LOGGING_IN' |'LOGGED_OUT'|'LOGGED_IN'|'LOGGING_IN_ERROR';
